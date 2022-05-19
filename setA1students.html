@@ -1,0 +1,38 @@
+<html>
+<head>
+    <style>
+        span
+        {
+            font-size: 25px;
+        }
+        table
+        {
+            color: blueviolet;
+        }
+    </style>
+    <script type = "text/javascript">
+        function print()
+        {
+            var a= false;
+            a = new XMLHttpRequest();
+            a.open("GET","setA1students.php");
+            a.send();
+    
+        a.onreadystatechange=function()
+        {
+            if(a.readyState== 4 && a.status== 200)
+                {
+                    document.getElementById("i").innerHTML=a.responseText;
+                }
+        }
+        }
+    </script>
+</head>
+<body>
+    <center>
+        <h3>Display Details of marks.dat file</h3>
+        <br><input type="button" value=Print onClick="print()">
+        <span id="i"></span>
+    </center>
+    </body>
+</html>
